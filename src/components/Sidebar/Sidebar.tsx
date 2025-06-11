@@ -21,36 +21,28 @@ import {
 import { useNavigate } from '@tanstack/react-router';
 const sidebarNavist = [
     {
-        title: "Explore Lands",
-        url: "/explore-lands",
+        title:"Dashboard",
+        url:"/dashboard",
     },
     {
-        title: "My Lands",
-        url: "/mylands",
+        title:"User Management",
+        url:"/user-management",
     },
     {
-        title: "Ownership Certificates",
-        url: "/ownership-certificates",
+        title:"Documents",
+        url:"/documents",
     },
     {
-        title: "Transactions",
-        url: "/transactions",
-        children: [
-            { title: "Buy Land", url: "/buy" },
-            { title: "Sell Land", url: "/sell" },
-        ]
+        title:"Land Records",
+        url:"/land-records",
     },
     {
-        title: "Register Land",
-        url: "/register-land",
+        title:"Requests Management",
+        url:"/requests-management",
     },
     {
-        title: "Activity History",
-        url: "/activity-history",
-    },
-    {
-        title: "Verify Ownership",
-        url: "/verify-ownership",
+        title:"Tax & Fees",
+        url:"/taxfee-management",
     }
 ];
 
@@ -64,35 +56,15 @@ const SidebarNavigation = () => {
                 </SidebarHeader>
                 <SidebarContent>
                     <SidebarGroup>
+                        <SidebarGroupLabel>Admin Navigation</SidebarGroupLabel>
                         <SidebarGroupContent>
                             <SidebarMenu>
                                 {sidebarNavist.map((item, index) => (
                                     <SidebarMenuItem key={index}>
                                         
-                                        {item.children && item.children.length > 0 ? (
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger>
-                                                    <SidebarMenuButton>
-                                                        {item.title}
-                                                        <ChevronDown className="ml-auto" />
-                                                    </SidebarMenuButton>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent>
-                                                    {item.children.map((child, childIndex) => (
-                                                        <DropdownMenuItem key={childIndex} >
-                                                            <SidebarMenuButton onClick={() => navigate({ to: `/user${item.url}${child.url}` })}>
-
-                                                            {child.title}
-                                                            </SidebarMenuButton>
-                                                        </DropdownMenuItem>
-                                                    ))}
-                                                </DropdownMenuContent>
-                                            </DropdownMenu>
-                                        ):(
-                                            <SidebarMenuButton onClick={() => navigate({ to: `/user/${item.url}` })}>
-                                            {item.title}
+                                            <SidebarMenuButton onClick={() => navigate({ to: `/admin/${item.url}` })}>
+                                            <p className='pl-2'>{item.title}</p>
                                         </SidebarMenuButton>
-                                        )}
                                     </SidebarMenuItem>
                                 ))}
                             </SidebarMenu>
@@ -111,7 +83,8 @@ const SidebarNavigation = () => {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent
                                     side="top"
-                                    className="w-[--radix-popper-anchor-width]"
+                                    className="w-full max-w-xs"
+                                    align="end"
                                 >
                                     <DropdownMenuItem>
                                         <span>Account</span>

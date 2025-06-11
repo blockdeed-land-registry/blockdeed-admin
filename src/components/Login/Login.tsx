@@ -22,7 +22,7 @@ const Login = () => {
                             <label htmlFor="password" className=" font-medium">Password</label>
                             <input type="password" id="password" className="w-full px-3 py-2 border rounded" />
                         </div>
-                        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600" onClick={()=>navigate({to:"/user/dashboard"})}>Login</button>
+                        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600" onClick={()=>navigate({to:"/admin/dashboard"})}>Login</button>
                     </form>
                 </CardContent>
                 <CardContent className="text-center mt-4">
